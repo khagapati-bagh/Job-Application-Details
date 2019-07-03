@@ -7,17 +7,10 @@
 </style>
 {% block content %}
 <div class="container" >
-    <a href="add_application/">Add Application</a>
+    <a href="{% url 'company:add_application' p_id %}">Add Application</a>
+
     {% for c in app_list %}
-        <div class="row comp" style="height: 50px;
-        font-size: 30px;
-        border: solid 1px;
-        border-radius: 15px;
-        padding: .5%;
-        padding-left: 5%;
-        background: wheat;
-        margin:1%;">
-            <!--{% url 'company:detail' c.id %}-->
+        <div class="row comp" style="height: 50px;font-size: 30px;border: solid 1px;border-radius: 15px;padding: .5%;padding-left: 5%;background: wheat;margin:1%;">
             <a href="{% url 'company:app_detail' c.id %}">
             {{ c.profile_name }}
             </a>

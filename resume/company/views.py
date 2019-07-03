@@ -33,15 +33,12 @@ def app_detail(request,a_id):
         'obj': obj
     }
     return HttpResponse(template.render(context, request))
-'''
-def external_view(request, a_id):
-    
-    return HttpResponse("<h1>hello</h1>")'''
 
-
+#to add company
 def AddCompany(request):
     return render(request, "Company/add_company.html")
 
+#store data to database
 def AddCompanySub(request):
     print("Company data is submitted successfully")
     c_name = request.POST["c_name"]
@@ -51,12 +48,15 @@ def AddCompanySub(request):
 
     return render(request, "Company/add_company.html")
 
-def AddApplication(request):
+#add application
+def AddApplication(request, p_id):
     context = {
+        'name': Company.objects.get(pk = p_id),
         'company':Company.objects.all()
     }
     return render(request, "Company/add_application.html", context)
 
+#store data in db
 def AddApplicationSub(request):
     print("Application submitted successfully")
     w = request.POST["c_name"]
