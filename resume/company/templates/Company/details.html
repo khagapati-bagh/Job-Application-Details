@@ -1,0 +1,31 @@
+{% extends 'company/header.html' %}
+<title xmlns:http="http://www.w3.org/1999/xhtml" xmlns:http="http://www.w3.org/1999/xhtml"
+       xmlns:http="http://www.w3.org/1999/xhtml" xmlns:http="http://www.w3.org/1999/xhtml"
+       xmlns:http="http://www.w3.org/1999/xhtml" xmlns:http="http://www.w3.org/1999/xhtml">{% block title %}Details {% endblock %}</title>
+<style>
+    .comp{
+
+        }
+</style>
+{% block content %}
+<div class="container" >
+  <div class="row comp" style="text-align: center; font-size: 30px; color: Green; margin: 1%;">{{ obj.c_name }}</div>
+  <div class="row">
+    <div class="row col-md-6">Profile Name : <span style="font-size: 25px;">{{ obj.profile_name }}</span></div>
+    <div class="row col-md-6">Date : <span style="font-size: 25px;">{{ obj.date }}</span> </div>
+  </div>
+  <div class="row">
+    <div class="row col-md-6">Link : <span style="font-size: 25px;"><a href="{{ obj.link }}" target="_blank">{{ obj.c_name }} Career</a></span></div>
+    <div class="row col-md-6">Resume : <span style="font-size: 25px;"><a href="{{ obj.resume.url }}" target="_blank">{{ obj.resume }}</a></span></div>
+  </div>
+  <div class="row">Description:<br>
+    <span style="font-size: 25px;">
+      <p>
+        {{ obj.desc }}
+      </p>
+    </span>
+  </div>
+  <div class="row">Feedback : <span style="font-size: 25px;">{{ obj.feedback }}</span></div>
+  <button type="cancel" class="btn btn-primary-default">Back</button>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'company/header.html' %}
+<title>{% block title %}Detail {% endblock %}</title>
+<style>
+    .comp{
+
+        }
+</style>
+{% block content %}
+<div class="container" >
+    <a href="add_application_sub/">Add Application</a>
+    {% for c in app_list %}
+        <div class="row comp" style="height: 50px;
+        font-size: 30px;
+        border: solid 1px;
+        border-radius: 15px;
+        padding: .5%;
+        padding-left: 5%;
+        background: wheat;
+        margin:1%;">
+            <!--{% url 'company:detail' c.id %}-->
+            <a href="{% url 'company:app_detail' c.id %}">
+            {{ c.profile_name }}
+            </a>
+        </div>
+    {% endfor %}
+    <!--<div class="row">
+
+    </div>-->
+</div>
+{% endblock %}

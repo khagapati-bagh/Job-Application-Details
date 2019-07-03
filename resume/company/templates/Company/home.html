@@ -1,0 +1,24 @@
+{% extends 'company/header.html' %}
+<style>
+    .comp{
+
+        }
+</style>
+{% block content %}
+<div class="container" >
+    {% for c in company %}
+        <div class="row comp" style="height: 50px;
+        font-size: 30px;
+        border: solid 1px;
+        border-radius: 15px;
+        padding: .5%;
+        padding-left: 5%;
+        background: wheat;
+        margin:1%;">
+        <a href="{% url 'company:detail' c.id %}">
+            {{ c.c_name }}
+        </a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

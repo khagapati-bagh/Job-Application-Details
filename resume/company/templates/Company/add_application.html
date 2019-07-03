@@ -1,0 +1,56 @@
+{% extends 'company/header.html' %}
+<title>{% block title %}Detail {% endblock %}</title>
+<style>
+    .row{
+    margin:.5%;
+    }
+</style>
+{% block content %}
+<div class="container" >
+    <div class="row" style="text-algin : center"></div>
+    <form class="add_company" method="post" action="add_application_sub/">
+        {% csrf_token %}
+
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Choose Company Name
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              {% for a in company %}
+                <input type="radio" name="c_name"> {{ a.c_name }}<br>
+                {% endfor %}
+          </div>
+        </div>
+
+        <div class="row form-group" style="margin:.5%">Profile Name :
+            <input name="profile_name" type="text" class="form-control" placeholder="Profile Name">
+        </div>
+         <div class="row form-group" style="margin:.5%">Date :
+            <input name="date" type="text" class="form-control" placeholder="Date">
+        </div>
+         <div class="row form-group" style="margin:.5%">Link :
+            <input name="link" type="text" class="form-control" placeholder="Link">
+        </div>
+        <div class="row form-group" style="margin:.5%">Description :
+            <input name="desc" type="text" class="form-control" rows="5" placeholder="Description">
+        </div>
+        <div class="row form-group" style="margin:.5%">Feedback :
+            <input name="feedback" type="text" class="form-control" placeholder="Feedback">
+        </div>
+        <div class="row form-group" style="margin:.5%">Resume :
+            <input name="resume" type="file" class="form-control-file" placeholder="Resume">
+        </div>
+        <div class="row" style="text-align: center; margin:.5%" >
+            <div class="submit-block table">
+                <div class="col-lg-3 table-cell">
+                    <button class="btn btn-small btn-primary">
+                        <span class="text">Add Application</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+</div>
+{% endblock %}
