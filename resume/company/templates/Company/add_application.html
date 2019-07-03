@@ -17,11 +17,10 @@
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               {% for a in company %}
-                <input type="radio" name="c_name"> {{ a.c_name }}<br>
-                {% endfor %}
+                <input type="radio" name="c_name" value="{{ a.c_name }}"> {{ a.c_name }}<br>
+              {% endfor %}
           </div>
         </div>
-
         <div class="row form-group" style="margin:.5%">Profile Name :
             <input name="profile_name" type="text" class="form-control" placeholder="Profile Name">
         </div>

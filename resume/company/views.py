@@ -59,17 +59,20 @@ def AddApplication(request):
 
 def AddApplicationSub(request):
     print("Application submitted successfully")
-    c_name = request.POST["c_name"]
-    print(c_name)
+    w = request.POST["c_name"]
+    x = Company.objects.get(c_name = w)
+    print(w)
     profile_name = request.POST["profile_name"]
     date = request.POST["date"]
     link = request.POST["link"]
     desc = request.POST["desc"]
     feedback = request.POST["feedback"]
     resume = request.POST["resume"]
-    app_info = Application(c_name = c_name, profile_name = profile_name, date = date, link = link, desc = desc, feedback = feedback, resume = resume)
+    app_info = Application(c_name = x, profile_name = profile_name, date = date, link = link, desc = desc, feedback = feedback, resume = resume)
     app_info.save()
-
+    context = {
+        'company': Company.objects.all()
+    }
     return render(request, "Company/add_application.html", context)
 
 
